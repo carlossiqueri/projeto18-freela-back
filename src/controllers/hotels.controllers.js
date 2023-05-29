@@ -1,4 +1,3 @@
-import { db } from "../database/db.connection.js";
 import { getDetailsDB, getHotelsDB } from "../repositories/hotels.repository.js";
 
 export const getHotels = async (req, res) => {
