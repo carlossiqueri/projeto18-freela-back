@@ -4,7 +4,7 @@ export const getTicketsDB = (id, min, max) => {
   if (min && max) {
     return db.query(
       `
-            SELECT flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino
+            SELECT flights.id, flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino,  destinations.id AS destino_id
             FROM flights
             JOIN companies ON flights.company_id = companies.id
             JOIN origins ON flights.origin_id = origins.id
@@ -16,7 +16,7 @@ export const getTicketsDB = (id, min, max) => {
   } else if (min) {
     return db.query(
       `
-            SELECT flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino
+            SELECT flights.id, flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino,  destinations.id AS destino_id
             FROM flights
             JOIN companies ON flights.company_id = companies.id
             JOIN origins ON flights.origin_id = origins.id
@@ -28,7 +28,7 @@ export const getTicketsDB = (id, min, max) => {
   } else if (max) {
     return db.query(
       `
-            SELECT flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino
+            SELECT flights.id, flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino,  destinations.id AS destino_id
             FROM flights
             JOIN companies ON flights.company_id = companies.id
             JOIN origins ON flights.origin_id = origins.id
@@ -41,7 +41,7 @@ export const getTicketsDB = (id, min, max) => {
 
   return db.query(
     `
-        SELECT flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino
+        SELECT flights.id, flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino,  destinations.id AS destino_id
         FROM flights
         JOIN companies ON flights.company_id = companies.id
         JOIN origins ON flights.origin_id = origins.id
@@ -55,7 +55,7 @@ export const getTicketsDB = (id, min, max) => {
 export const getFlightDetailsDB = (id) => {
     return (
     db.query(`
-    SELECT flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino
+    SELECT flights.id, flights.flight_date, flights.departure, flights.arrival, flights.price, companies.name AS compania_aerea, origins.origin_name AS origem, destinations.name AS destino,  destinations.id AS destino_id
     FROM flights
     JOIN companies ON flights.company_id = companies.id
     JOIN origins ON flights.origin_id = origins.id
