@@ -9,7 +9,7 @@ export const getTicketsDB = (id, min, max) => {
             JOIN companies ON flights.company_id = companies.id
             JOIN origins ON flights.origin_id = origins.id
             JOIN destinations ON flights.destination_id = destinations.id
-            WHERE destination_id = $1 AND flights.price >= $2 flights.price <= $3;
+            WHERE destination_id = $1 AND flights.price >= $2 AND flights.price <= $3;
             `,
       [id, min, max]
     );
