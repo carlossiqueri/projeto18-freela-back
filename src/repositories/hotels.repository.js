@@ -35,7 +35,7 @@ export const getHotelsDB = (destination_id, min, max) => {
 export const getDetailsDB = (id) => {
   return db.query(
     `
-        SELECT hotels.price, hotels.coffe, hotels.pool, hotels.type, destinations.name AS city, descriptions.description AS description
+        SELECT hotels.name, hotels.price, hotels.coffe, hotels.pool, hotels.type, destinations.name AS city, descriptions.description AS description
         FROM hotels
         JOIN descriptions ON hotels.id = descriptions.hotel_id
         JOIN destinations ON hotels.destination_id = destinations.id
